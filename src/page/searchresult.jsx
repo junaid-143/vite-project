@@ -5,7 +5,7 @@ import SparePartsTable from "../components/App/sparepartstable";
 function Searchresult() {
     return (
         <main>
-            <Navbar />
+            <Navbar sticky={true} />
             <div className="w-screen mt-14 lg:mt[62px] ">
                 <TabSelector />
                 <SparePartsTable />

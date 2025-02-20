@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Menu, X, ShoppingCart, Search, Bell, User } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({ sticky = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <header className={`${sticky ? "fixed" : "relative"} top-0 left-0 w-full bg-white shadow-md z-50`}>
       <nav className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="text-xl font-bold">Fixamigo</div>
-        
+
         {/* Icons */}
         <div className="flex items-center space-x-4">
           <Search className="w-6 h-6 cursor-pointer" />
@@ -19,7 +19,7 @@ export default function Navbar() {
           <Menu className="w-6 h-6 cursor-pointer md:hidden" onClick={() => setMenuOpen(true)} />
         </div>
       </nav>
-      
+
       {/* Full-screen Menu with Animation */}
       <AnimatePresence>
         {menuOpen && (
