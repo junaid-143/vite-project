@@ -1,6 +1,6 @@
-import BackButton from "../components/App/backbutton";
-import Navbar from "../components/App/navbar";
-import ProgressBar from "../components/App/progressbar";
+import BackButton from "../../components/App/backbutton";
+import Navbar from "../../components/App/navbar";
+import ProgressBar from "../../components/App/progressbar";
 
 const ServiceDetails = () => {
     return (

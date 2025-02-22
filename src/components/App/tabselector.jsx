@@ -32,10 +32,10 @@ const TabSelector = () => {
         ))}
       </div>
 
-      {/* Selected Tab Content */}
+      
       <h2 className="text-xl font-bold mt-4">{activeTab}</h2>
 
-      {/* Short Heading with Square */}
+      
       <div className="mt-2 px-3 py-1 border border-black rounded-[6px] text-xs font-semibold">
         APPLE
       </div>
