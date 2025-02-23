@@ -1,6 +1,6 @@
 import Navbar from "../components/App/navbar";
 import PhoneSelection from "../components/App/phoneselection";
-import SparePartsList from "../components/App/sparepartsdetails";
+import SparePartsList from "../components/App/sparepartslist";
 
 function SpairPartsPage() {
     return (
