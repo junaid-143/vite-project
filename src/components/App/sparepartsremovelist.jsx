@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCartPlus } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import {  ArrowRight } from "lucide-react";
 
@@ -19,7 +19,7 @@ const spareParts = [
 
 const getImage = (type) => `/icons/${type}.png`;
 
-const SparePartsList = () => {
+const SparePartsRemoveList = () => {
   return (
     <div className="w-full max-w-md mx-auto p-4">
       <h2 className="text-lg font-bold mb-2">SPARE PARTS</h2>
@@ -38,8 +38,8 @@ const SparePartsList = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-black text-white px-3 py-2 text-sm rounded-[4px]">
-              <FaCartPlus />
+            <div className=" text-red-500  text-2xl">
+            <MdDelete />
             </div>
           </div>
           {item.estimatedPrice && (
@@ -61,4 +61,4 @@ const SparePartsList = () => {
   );
 };
 
-export default SparePartsList;
+export default SparePartsRemoveList;
