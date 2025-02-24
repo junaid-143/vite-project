@@ -20,6 +20,8 @@ import SpairPartsCart from './page1/SparePartsCart';
 import OtherServicesPage from './page1/OtherServicesPage';
 
 
+import NewChekout from './page1/newchekout';
+
 
 const services = [
   {
@@ -62,6 +64,9 @@ function App() {
       <Route path='/sparepartspage' element={<SpairPartsPage />} />
       <Route path='/sparepartscart' element={<SpairPartsCart />} />
       <Route path='/otherservicespage' element={<OtherServicesPage />} /> 
+
+
+      <Route path='/newcheckout' element={<NewChekout />} />
         
 
       </Routes>
