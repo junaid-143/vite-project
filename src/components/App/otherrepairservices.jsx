@@ -21,25 +21,11 @@ const RepairForm = () => {
         Looking for other repair services?
       </h2>
       <p className="text-center text-gray-600 text-sm mb-6">
-        Share your issue, and our team will reach out with the best solution.
+      Unsure of the issue? If your phone isn't working or the problem is unclear, our team will diagnose it and reach out. Describe what's happening below.
       </p>
 
-      {/* Issue Selection */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
-        {issues.map((issue) => (
-          <button
-            key={issue}
-            onClick={() => setSelectedIssue(issue)}
-            className={`bg-gray-100 py-3 px-5 rounded-[4px] text-sm border ${
-              selectedIssue === issue
-                ? "border border-blue-500 text-blue-500"
-                : "border-transparent text-gray-700"
-            }`}
-          >
-            {issue}
-          </button>
-        ))}
-      </div>
+      
+      
 
       {/* Pincode Input */}
       <label className="text-sm font-medium text-gray-900 block mb-2">

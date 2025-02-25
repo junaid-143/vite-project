@@ -18,6 +18,7 @@ import PhoneModels from './page1/PhoneModels';
 import SpairPartsPage from './page1/SpairPartsPage';
 import SpairPartsCart from './page1/SparePartsCart';
 import OtherServicesPage from './page1/OtherServicesPage';
+import PickDatePage from './page1/PickDatePage';
 
 
 import NewChekout from './page1/newchekout';
@@ -64,6 +65,7 @@ function App() {
       <Route path='/sparepartspage' element={<SpairPartsPage />} />
       <Route path='/sparepartscart' element={<SpairPartsCart />} />
       <Route path='/otherservicespage' element={<OtherServicesPage />} /> 
+      <Route path='/pickdatepage' element={<PickDatePage />} />
 
 
       <Route path='/newcheckout' element={<NewChekout />} />
