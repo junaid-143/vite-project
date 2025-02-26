@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import {  ArrowRight } from "lucide-react";
+import { MdDeleteForever } from "react-icons/md";
 
 const spareParts = [
   { id: 1, name: "Display qlty1", type: "display", oldPrice: 11000, newPrice: 8000, discount: "-18%", estimatedPrice: false },
@@ -19,11 +18,12 @@ const spareParts = [
 
 const getImage = (type) => `/icons/${type}.png`;
 
-const SparePartsList = () => {
+const SparePartsList = ({ cart, toggleCart }) => {
   return (
     <div className="w-full max-w-md mx-auto p-4">
       <h2 className="text-lg font-bold mb-2">SPARE PARTS</h2>
       <hr className="bg-black mb-4" />
+
       {spareParts.map((item) => (
         <div key={item.id} className="bg-gray-100 py-4 pr-2 rounded-[6px] shadow-sm mb-3">
           <div className="flex items-center justify-between px-4">
@@ -38,27 +38,20 @@ const SparePartsList = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-black text-white px-3 py-2 text-sm rounded-[4px]">
-              <FaCartPlus />
-            </div>
+            <button
+              onClick={() => toggleCart(item.id, item.name, item.newPrice)}
+              className={`px-3 py-2 text-sm rounded-[4px] transition duration-300 ${
+                cart[item.id] ? "bg-red-600 text-white" : "bg-black text-white"
+              }`}
+            >
+              {cart[item.id] ? <MdDeleteForever /> : <FaCartPlus />}
+            </button>
           </div>
-          {item.estimatedPrice && (
-            <p className="flex items-center text-[11px] text-gray-600 bg-gray-200 px-1  rounded-[4px] mt-2 ml-1 w-full">
-              <AiOutlineCheckCircle className="text-blue-600 mr-2" />
-             This is an estimated price; the final price will be determined after inspection.
-            </p>
-          )}
         </div>
       ))}
-      <div className="flex items-center bg-gray-100 py-4 pr-2 rounded-[6px] shadow-sm mb-3 p-4">
-        <img src="/icons/service.png" alt="Repair Service" className="w-12 h-12 mr-3" />
-        <p className="font-medium text-black flex-grow">Can’t find your repair service?</p>
-        <div className="bg-black text-white p-2 rounded-full">
-          <ArrowRight size={18} />
-        </div>
-      </div>
     </div>
   );
 };
+
 
 export default SparePartsList;

@@ -18,7 +18,7 @@ const brands = [
 const BrandSelection = () => {
     return (
       <div className="flex flex-col items-center p-6">
-        <div className="w-full max-w-2xl">
+        <div className=" max-w-2xl">
           <h2 className="text-2xl font-bold mb-6 text-left">Select your brand</h2>
           <div className="grid grid-cols-3 md:grid-cols-4 gap-4 items-center justify-center">
             {brands.map((brand, index) => (
