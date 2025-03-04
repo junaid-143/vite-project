@@ -1,5 +1,6 @@
-import { Tag, ArrowRight } from "lucide-react";
+import {  ArrowRight } from "lucide-react";
 import { useState, forwardRef } from "react";
+import { CiDiscount1 } from "react-icons/ci";
 
 const PriceSummary = forwardRef(({ cartItems, couponInputRef }, ref) => {
   const [coupon, setCoupon] = useState("");
@@ -9,7 +10,7 @@ const PriceSummary = forwardRef(({ cartItems, couponInputRef }, ref) => {
   return (
     <div ref={ref} className="p-6 bg-white rounded-[6px] max-w-md mx-auto">
       <div className="flex items-center justify-between bg-gray-100 p-3 rounded-[6px]">
-        <Tag size={20} className="mr-2 text-gray-600" />
+        <CiDiscount1 size={26} className="mr-2 text-black" />
         <input
           type="text"
           placeholder="Enter Coupon Code"
