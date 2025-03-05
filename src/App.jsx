@@ -4,7 +4,6 @@ import Login from './loginpage/Login';
 import Appintro from './Appintro/appintro';
 import MainPage from './page1/MainPage';
 import Searchresult from './page1/SearchResult';
-import CheckOut from './page1/CheckOut';
 import OrderPlaced from './components/App/orderplaced';
 import SavedAddress from './page1/SavedAddress';
 import RemoveAddress from './page1/RemoveAddress';
@@ -19,9 +18,8 @@ import SpairPartsPage from './page1/SpairPartsPage';
 import SpairPartsCart from './page1/SparePartsCart';
 import OtherServicesPage from './page1/OtherServicesPage';
 import PickDatePage from './page1/PickDatePage';
-
-
-import NewChekout from './page1/newchekout';
+import PhoneBrandSelect from './page1/PhoneModelSelect';
+import Checkout from './page1/CheckOut';
 
 
 const services = [
@@ -48,7 +46,6 @@ function App() {
         <Route path="/Appintro" element={<Appintro />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/searchresult" element={<Searchresult />} />       
-        <Route path="/checkout" element={<CheckOut />} />
         <Route path="/orderplaced" element={<OrderPlaced />} />
         <Route path="/savedaddress" element={<SavedAddress />} />
         <Route path="/removeaddress" element={<RemoveAddress />} />
@@ -66,9 +63,9 @@ function App() {
       <Route path='/sparepartscart' element={<SpairPartsCart />} />
       <Route path='/otherservicespage' element={<OtherServicesPage />} /> 
       <Route path='/pickdatepage' element={<PickDatePage />} />
-
-
-      <Route path='/newcheckout' element={<NewChekout />} />
+      <Route path='/checkout' element={<Checkout />} />
+      <Route path='/phonebrandselect' element={<PhoneBrandSelect />} />
+     
         
 
       </Routes>
