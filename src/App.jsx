@@ -55,7 +55,7 @@ function App() {
         <Route path="/addaddress" element={<AddAddress />} />
         <Route path="/editaddress" element={<EditAddress />} />
         <Route path="/progressbarpage" element={<ProgressBarPage />} />
-        <Route path="/cartpage" element={<CartPage isLoggedIn={false} />} />
+        <Route path="/cartpage" element={<CartPage isLoggedIn={true} />} />
         <Route 
         path="/servicespage" 
         element={<ServicesPage isLoggedIn={true} hasServices={services.length > 0} services={services} />} 

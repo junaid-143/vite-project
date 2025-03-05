@@ -11,10 +11,12 @@ const cartItems = [
   {
     id: 1,
     name: "Apple iPhone 15 Plus",
-    description: "iPhone 15 Plus display qty2",
+    description: "display qty2",
+    image: "display.png",
+    discount: "18%",
+    mrp: 10000,
     price: 8000,
-    size: "M",
-    color: "Lemon",
+
   },
 ];
 
@@ -26,27 +28,33 @@ const CartPage = ({ isLoggedIn }) => {
       <Navbar sticky={false} />
       <BackButton title="Cart" />
 
-      <div className={`flex flex-col flex-grow items-center ${hasItems ? "" : "justify-center"}`}>
-      {!isLoggedIn ? (
-          <NotSignedComp
-            Icon={BsCart2}
-            title="Your Cart is Empty"
-            description="Sign in to view your saved items or start adding new favorites."
-          />
+      {/* This wrapper ensures full height but does NOT center FilledCart */}
+      <div className={`flex-1 w-full ${hasItems ? "flex flex-col" : "flex justify-center items-center"}`}>
+        {!isLoggedIn ? (
+          <div className="flex flex-col justify-center items-center h-full w-full">
+            <NotSignedComp
+              Icon={BsCart2}
+              title="Your Cart is Empty"
+              description="Sign in to view your saved items or start adding new favorites."
+            />
+          </div>
         ) : hasItems ? (
-          // ✅ Pass cartItems as a prop
+          // ✅ FilledCart will NOT be centered, it will start from the top
           <FilledCart cartItems={cartItems} setCartItems={() => {}} />
         ) : (
-          <SignedComp
-            Icon={BsCart2}
-            title="Your Cart is Empty"
-            description="Start adding items to your cart now!"
-          />
+          <div className="flex flex-col justify-center items-center h-full w-full">
+            <SignedComp
+              Icon={BsCart2}
+              title="Your Cart is Empty"
+              description="Start adding items to your cart now!"
+            />
+          </div>
         )}
       </div>
     </main>
   );
 };
+
 
 export default CartPage;
 

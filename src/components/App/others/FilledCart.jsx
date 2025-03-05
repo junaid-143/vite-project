@@ -1,101 +1,80 @@
 import { Button } from "@/components/ui/button";
 import { Smartphone } from "lucide-react";
-import Navbar from "../navbar";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-export default function FilledCart({ cartItems, setCartItems }) {
+export default function FilledCart({ cartItems = [], setCartItems }) {
   const navigate = useNavigate();
-
-  // Calculate total price dynamically
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
-  const shippingCost = 40;
-  const total = subtotal + shippingCost;
-
-  // Function to remove all items
-  const handleRemoveAll = () => {
-    setCartItems([]);
-  };
-
-  // Function to remove a single item
-  const handleRemoveItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
+  const total = subtotal;
 
   return (
-    <main>
-      <Navbar />
-
-      <div className="max-w-lg  ">
-       
-
-        {/* Cart Items */}
+    <main className="w-full flex flex-col items-center pb-28"> 
+      <div className="w-full max-w-md p-4">
         {cartItems.map((item) => (
-          <div key={item.id} className="border-b pb-4 mb-4">
-            {/* Title and Remove Button */}
+          <div key={item.id} className="pb-4 mb-2">
             <div className="flex justify-between items-center mb-2">
               <h3 className="font-semibold">{item.name}</h3>
-              <Button variant="ghost" size="sm" onClick={handleRemoveAll}>
+              <Button variant="ghost" size="sm" onClick={() => setCartItems([])}>
                 Remove All
               </Button>
             </div>
 
-            {/* Item Details */}
-            <div className="flex items-center space-x-4 p-2 border rounded-[8px] bg-gray-100 border-none">
-              <Smartphone className="w-12 h-12 text-gray-500" />
+            <div className="flex items-center space-x-3 p-2 border rounded-[6px] bg-gray-100">
+  {/* Product Image */}
+  <img
+    src={`/icons/${item.image}`}  // Ensure correct case
+    alt={item.name}
+    className="w-16 h-16 object-contain"
+  />
 
-              <div className="flex-1 text-sm">
-                <p className="text-gray-700">{item.description}</p>
-                {item.size && item.color && (
-                  <p className="text-gray-500">
-                    Size - <span className="font-semibold">{item.size}</span>{" "}
-                    Color - <span className="font-semibold">{item.color}</span>
-                  </p>
-                )}
-                {item.brand && item.model && (
-                  <p className="text-gray-500">
-                    Brand - <span className="font-semibold">{item.brand}</span>{" "}
-                    Model - <span className="font-semibold">{item.model}</span>
-                  </p>
-                )}
-              </div>
+  {/* Product Details */}
+  <div className="flex-1 text-sm">
+    <p className="text-gray-700">{item.description}</p>
 
-              {/* Price and Quantity */}
-              <div className="flex flex-col items-center">
-                <p className="font-semibold">₹{item.price}</p>
-                <div className="flex items-center space-x-2 mt-2">
-                  <button onClick={() => handleRemoveItem(item.id)}>
-                    <MdDelete className="w-9 h-9 text-red-500 hover:text-red-700" />
-                  </button>
-                </div>
-              </div>
-            </div>
+    {/* Price Details - Matches the Reference Image */}
+    <div className="flex items-center space-x-2">
+      <span className="text-blue-600 font-semibold">-{item.discount}</span>
+      <span className="text-gray-500 line-through">₹{item.mrp}</span>
+      <span className="text-black font-bold">₹{item.price}</span>
+    </div>
+  </div>
+
+  {/* Remove Button */}
+  <div className="flex flex-col items-center">
+    <button onClick={() => setCartItems(cartItems.filter((i) => i.id !== item.id))}>
+      <MdDelete className="w-8 h-8 text-red-500 hover:text-red-700" />
+    </button>
+  </div>
+</div>
+
+
           </div>
         ))}
+      </div>
 
-        {/* Checkout Summary Section */}
-        <div className="bg-gray-50 p-4 rounded-lg shadow-md mt-6">
-          <div className="flex justify-between text-gray-700 text-lg font-medium">
-            <span>Subtotal</span>
-            <span>₹{subtotal.toLocaleString()}</span>
+      <div className="fixed bottom-0 w-full max-w-md bg-white shadow-lg p-4 rounded-t-[6px]">
+        <h3 className="font-semibold text-black mb-2">Price summary</h3>
+
+        <div className="bg-gray-50 p-3 rounded-[6px] border border-gray-200">
+          {cartItems.map((item) => (
+            <div key={item.id} className="flex justify-between text-gray-600 text-sm mb-1">
+              <span>{item.name.toLowerCase()} {item.description}</span>
+              <span className="font-medium">₹{item.price}</span>
+            </div>
+          ))}
+
+          <hr className="border-dashed my-2" />
+
+          <div className="flex justify-between font-bold text-black">
+            <span>Total Price</span>
+            <span className="text-blue-600">₹{total.toLocaleString()}</span>
           </div>
-
-          <div className="flex justify-between text-gray-500 mt-2">
-            <span>Shipping Cost</span>
-            <span>₹{shippingCost.toLocaleString()}</span>
-          </div>
-
-          <hr className="my-3" />
-
-          <div className="flex justify-between text-black font-bold text-lg">
-            <span>Total</span>
-            <span>₹{total.toLocaleString()}</span>
-          </div>
-
-          <Button className="w-full bg-black text-white hover:bg-gray-800 font-semibold py-3 mt-4 rounded-[8px] text-lg">
-            Checkout
-          </Button>
         </div>
+
+        <Button className="w-full bg-black text-white hover:bg-gray-800 font-semibold p-4 mt-3 rounded-[6px] text-lg">
+          Book now
+        </Button>
       </div>
     </main>
   );
