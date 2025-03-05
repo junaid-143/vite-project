@@ -1,25 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './loginpage/Login';
-import Appintro from './Appintro/appintro';
 import MainPage from './page1/MainPage';
-import Searchresult from './page1/SearchResult';
-import OrderPlaced from './components/App/orderplaced';
-import SavedAddress from './page1/SavedAddress';
-import RemoveAddress from './page1/RemoveAddress';
-import AddAddress from './page1/AddAddress';
-import EditAddress from './page1/EditAddress';
-import ProgressBarPage from './page1/ProgressBarpage';
-import CartPage from './page1/Cartpage';
-import ServicesPage from './page1/ServicePage';
-import NotificationPage from './page1/NotificationPage';
+import PhoneBrandSelect from './page1/PhoneModelSelect';
 import PhoneModels from './page1/PhoneModels';
 import SpairPartsPage from './page1/SpairPartsPage';
-import SpairPartsCart from './page1/SparePartsCart';
 import OtherServicesPage from './page1/OtherServicesPage';
-import PickDatePage from './page1/PickDatePage';
-import PhoneBrandSelect from './page1/PhoneModelSelect';
 import Checkout from './page1/CheckOut';
+import AddAddress from './page1/AddAddress';
+import PickDatePage from './page1/PickDatePage';
+import CartPage from './page1/Cartpage';
+import ServicesPage from './page1/ServicePage';
+import ProgressBarPage from './page1/ProgressBarpage';
+import NotificationPage from './page1/NotificationPage';
 
 
 const services = [
@@ -43,28 +36,21 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/Appintro" element={<Appintro />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/searchresult" element={<Searchresult />} />       
-        <Route path="/orderplaced" element={<OrderPlaced />} />
-        <Route path="/savedaddress" element={<SavedAddress />} />
-        <Route path="/removeaddress" element={<RemoveAddress />} />
+        <Route path='/phonebrandselect' element={<PhoneBrandSelect />} />
+        <Route path='/phonemodels' element={<PhoneModels />} />
+        <Route path='/sparepartspage' element={<SpairPartsPage />} />
+        <Route path='/otherservicespage' element={<OtherServicesPage />} /> 
+        <Route path='/checkout' element={<Checkout />} />
         <Route path="/addaddress" element={<AddAddress />} />
-        <Route path="/editaddress" element={<EditAddress />} />
-        <Route path="/progressbarpage" element={<ProgressBarPage />} />
+        <Route path='/pickdatepage' element={<PickDatePage />} />
         <Route path="/cartpage" element={<CartPage isLoggedIn={true} />} />
         <Route 
         path="/servicespage" 
         element={<ServicesPage isLoggedIn={true} hasServices={services.length > 0} services={services} />} 
         />
-      <Route path='/notificationpage' element={<NotificationPage isLoggedIn={true} hasNotifications={true} />} />
-      <Route path='/phonemodels' element={<PhoneModels />} />
-      <Route path='/sparepartspage' element={<SpairPartsPage />} />
-      <Route path='/sparepartscart' element={<SpairPartsCart />} />
-      <Route path='/otherservicespage' element={<OtherServicesPage />} /> 
-      <Route path='/pickdatepage' element={<PickDatePage />} />
-      <Route path='/checkout' element={<Checkout />} />
-      <Route path='/phonebrandselect' element={<PhoneBrandSelect />} />
+        <Route path="/progressbarpage" element={<ProgressBarPage />} />
+        <Route path='/notificationpage' element={<NotificationPage isLoggedIn={true} hasNotifications={true} />} />
      
         
 

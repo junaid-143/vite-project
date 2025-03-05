@@ -1,6 +1,6 @@
-import Navbar from "../components/App/navbar";
-import TabSelector from "../components/App/tabselector";
-import SparePartsTable from "../components/App/sparepartstable";
+import Navbar from "../../components/App/navbar";
+import TabSelector from "../../components/App/tabselector";
+import SparePartsTable from "../../components/App/sparepartstable";
 
 function Searchresult() {
     return (

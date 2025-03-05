@@ -1,8 +1,8 @@
-import {  ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState, forwardRef } from "react";
 import { CiDiscount1 } from "react-icons/ci";
 
-const PriceSummary = forwardRef(({ cartItems, couponInputRef }, ref) => {
+const PriceSummary = forwardRef(({ cartItems = [], couponInputRef }, ref) => {
   const [coupon, setCoupon] = useState("");
 
   const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);

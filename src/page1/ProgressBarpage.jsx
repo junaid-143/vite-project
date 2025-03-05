@@ -11,7 +11,7 @@ const ProgressBarPage = () => {
             <Navbar sticky={false} />
             <BackButton title="Service Details" />
            
-            <ProgrssBar currentStep={1} />
+            <ProgrssBar currentStep={0} />
             <InvoiceComponent />
 
 

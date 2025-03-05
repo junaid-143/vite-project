@@ -5,14 +5,6 @@ const RepairForm = () => {
   const [pincode, setPincode] = useState("");
   const [issueDescription, setIssueDescription] = useState("");
 
-  const issues = [
-    "Dead phone",
-    "IC issues",
-    "Camera issues",
-    "Motherboard issues",
-    "Volume key FPC",
-    "Power key FPC",
-  ];
 
   return (
     <div className="p-8 bg-white rounded-[6px] max-w-md mx-auto mt-14">
@@ -28,7 +20,7 @@ const RepairForm = () => {
       
 
       {/* Pincode Input */}
-      <label className="text-sm font-medium text-gray-900 block mb-2">
+      <label className="text-sm font-semibold text-gray-900 block mb-2">
         Enter your pincode
       </label>
       <input
@@ -40,7 +32,7 @@ const RepairForm = () => {
       />
 
       {/* Issue Description */}
-      <label className="text-sm font-medium text-gray-900 block mb-2">
+      <label className="text-sm font-semibold text-gray-900 block mb-2">
         Describe your issue
       </label>
       <textarea

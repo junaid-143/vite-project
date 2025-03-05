@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BackButton from "../components/App/backbutton";
-import Navbar from "../components/App/navbar";
+import BackButton from "../../components/App/backbutton";
+import Navbar from "../../components/App/navbar";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
 const addresses = [
