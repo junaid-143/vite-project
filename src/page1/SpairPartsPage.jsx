@@ -40,7 +40,7 @@ function SparePartsPage() {
         setTimeout(() => {
             if (couponInputRef.current) {
                 couponInputRef.current.focus();
-            }
+            } 
         }, 500);
     };
 
